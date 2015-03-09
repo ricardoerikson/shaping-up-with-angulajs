@@ -1,0 +1,8 @@
+[submodule "lib/angular.js"]
+	path = lib/angular.js
+	url = https://github.com/angular/angular.js.git
+	branch = v1.3.14
+[submodule "lib/bootstrap"]
+	path = lib/bootstrap
+	url = https://github.com/twbs/bootstrap.git
+	branch = v3.3.2
