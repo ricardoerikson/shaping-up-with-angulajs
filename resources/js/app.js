@@ -34,6 +34,18 @@
 			full: 'resources/images/02-full.png',
 			thumb: 'resources/images/02-thumb.png'
 		}
+		],
+		reviews: [
+		{
+			stars: 5,
+			body: 'I love this product',
+			author: 'joe@thomas.com'
+		},
+		{
+			stars: 1,
+			body: 'This product sucks',
+			author: 'tim@hater.com'
+		}
 		]
 	},
 	{
