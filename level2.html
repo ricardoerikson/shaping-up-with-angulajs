@@ -8,13 +8,15 @@
 	<ul class="list-group">
 		<li class="list-group-item" ng-repeat="product in store.products">
 			<h3>
-				{{ product.name }}
-				<em class="pull-right"> {{ product.price | currency }} </em>
+				{{ product.name | uppercase | limitTo:8 }}
+				<em class="pull-right"> {{ product.price | currency:"R$ " }} </em>
+				<img ng-src=" {{ product.images[0].full }} ">
 			</h3>
 		</li>
 	</ul>
 
 	<script type="text/javascript" src="lib/angularjs/angular.min.js"></script>
+	<script type="text/javascript" src="resources/js/angular-locale_pt-br.js"></script>
 	<script type="text/javascript" src="resources/js/app.js"></script>
 
 </body>
