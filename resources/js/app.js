@@ -1,6 +1,7 @@
 (function () {
 	var app = angular.module('store', [ ]);
 
+	//  ANGULARJS CONTROLLERS
 	app.controller('ReviewController', function(){
 		this.review = {};
 		this.addReview = function(product) {
@@ -26,6 +27,16 @@
 		};
 	});
 
+	// ANGULAR DIRECTIVES
+
+	app.directive('productTitle', function(){
+		return {
+			restrict: 'A',
+			templateUrl: 'product-title.html'
+		};
+	});
+
+	// JSON OBJECTS
 	var gems = [
 	{
 		name: 'Dodecahedron',
