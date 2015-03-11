@@ -2,6 +2,7 @@
 <html ng-app="store">
 <head>
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/style.css">
 </head>
 <body ng-controller="StoreController as store">
 
@@ -38,14 +39,15 @@
 						<footer><cite>by: {{ review.author }}</cite></footer>
 					</blockquote>
 					<form name="reviewForm" role="form" ng-controller="ReviewController as reviewCtrl"
-						ng-submit="reviewCtrl.addReview(product)">
-						<blockquote>
+						ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+						<blockquote ng-hide="reviewForm.$pristine">
+							<h5>Preview:</h5>
 							<b>Stars: {{ reviewCtrl.review.stars }}</b>
 							{{ reviewCtrl.review.body }}
 							<cite>by: {{ reviewCtrl.review.author }}</cite>
 						</blockquote>
 						<fieldset class="form-group">
-							<select class="form-control" ng-model="reviewCtrl.review.stars">
+							<select class="form-control" ng-model="reviewCtrl.review.stars" required>
 								<option value="1">1 star</option>
 								<option value="2">2 stats</option>
 								<option value="3">3 stars</option>
@@ -54,13 +56,14 @@
 							</select>
 						</fieldset>
 						<fieldset class="form-group">
-							<textarea class="form-control" placeholder="Write a short review of the product..." ng-model="reviewCtrl.review.body"></textarea>
+							<textarea class="form-control" placeholder="Write a short review of the product..." ng-model="reviewCtrl.review.body" required></textarea>
 						</fieldset>
 						<fieldset class="form-group">
 							<label>by: </label>
-							<input class="form-control" type="email" placeholder="youremail@domain.com" ng-model="reviewCtrl.review.author" />
+							<input class="form-control" type="email" placeholder="youremail@domain.com" ng-model="reviewCtrl.review.author" required />
 						</fieldset>
-						<input class="btn btn-default" type="submit" value="Submit" />
+						<div>reviewForm is {{ reviewForm.$valid }}</div>
+						<input class="btn btn-default" type="submit" value="Submit" ng-disabled="!reviewForm.$valid" />
 					</form>
 				</div>
 			</section>
