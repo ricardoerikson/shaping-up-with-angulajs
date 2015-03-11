@@ -1,5 +1,5 @@
 (function () {
-	var app = angular.module('store', [ ]);
+	var app = angular.module('store', [ 'store-products' ]);
 
 	//  ANGULARJS CONTROLLERS
 	app.controller('ReviewController', function(){
@@ -12,34 +12,6 @@
 
 	app.controller('StoreController',function(){
 		this.products = gems;
-	});
-
-	// ANGULAR DIRECTIVES
-
-	app.directive('productTitle', function(){
-		return {
-			restrict: 'A',
-			templateUrl: 'product-title.html'
-		};
-	});
-
-	app.directive('productPanels', function(){
-		return {
-			restrict: 'E',
-			templateUrl: 'product-panels.html',
-			controller: function() {
-				this.tab = 1;
-
-				this.selectTab = function(setTab) {
-					this.tab = setTab;
-				};
-
-				this.isSelected = function(checkTab) {
-					return this.tab === checkTab;
-				};
-			},
-			controllerAs: 'panel'
-		};
 	});
 
 	// JSON OBJECTS
